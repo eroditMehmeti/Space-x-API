@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { FIND_LAUNCH, LOAD_ONE_PAST_LAUNCH } from "../GraphQL/Queries";
 import { useQuery } from "@apollo/client";
+import "./RocketDetails.css";
 
 export default function RocketDetails() {
   const { id } = useParams();
@@ -29,13 +30,13 @@ export default function RocketDetails() {
         <h4>Mission Name</h4>
         <li class="list-group-item">{launch.mission_name}</li>
         <h4>Rocket Name</h4>
-        <li class="list-group-item">{launch.rocket.rocket.name}</li>
+        <li class="list-group-item">{launch?.rocket?.rocket?.name}</li>
         <h4>Rocket Type</h4>
-        <li class="list-group-item">{launch.rocket.rocket.type}</li>
+        <li class="list-group-item">{launch?.rocket?.rocket?.type}</li>
         <h4>Rocket Description</h4>
-        <li class="list-group-item">{launch.rocket.rocket.description}</li>
+        <li class="list-group-item">{launch?.rocket?.rocket?.description}</li>
         <h4>Rocket Stage</h4>
-        <li class="list-group-item">{launch.rocket.rocket.stages}</li>
+        <li class="list-group-item">{launch?.rocket?.rocket?.stages}</li>
       </ul>
     </div>
   );
